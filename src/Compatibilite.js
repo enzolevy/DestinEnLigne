@@ -53,22 +53,22 @@ function Compatibilite() {
     let tarotPromptAnalysis = ""
     if (tarotCheck) {
         tarotPromptInstruction = `
-    Pour commencer, peux-tu tirer 13 cartes de tarot de marseilles au hasard et les indiquer dans ta réponse sous forme de liste ? Tu dois impérativement commencer la réponsee comme suit : 'Voici 13 cartes de tarot de Marseilles tirées au hasard :'.
+    Pour commencer, peux-tu tirer 13 cartes de tarot de marseilles au hasard et les indiquer dans ta rï¿½ponse sous forme de liste ? Tu dois impï¿½rativement commencer la rï¿½ponsee comme suit : 'Voici 13 cartes de tarot de Marseilles tirï¿½es au hasard :'.
     `;
-        tarotPromptAnalysis = `- L'analyse des cartes de tarots tirées`
+        tarotPromptAnalysis = `- L'analyse des cartes de tarots tirï¿½es`
     }
 
     const createPrompt = (person1, person2, compatibilityType) => {
-        return `Bonjour chatGPT, tu es astrologue, tu as été engagé par un client pour calculer sa compatibilité ${compatibilityType} avec une autre personne.
+        return `Bonjour chatGPT, tu es astrologue, tu as ï¿½tï¿½ engagï¿½ par un client pour calculer sa compatibilitï¿½ ${compatibilityType} avec une autre personne.
               Voici les informations sur ton client :
-              Prénom: ${person1.name}
+              Prï¿½nom: ${person1.name}
               Date de naissance: ${person1.dob}
               Heure de naissance: ${person1.tob}
               Lieu de naissance: ${person1.pob}
               ${mbtiProfile1}
 
               Voici les informations sur la deuxieme personne :
-              Prénom: ${person2.name}
+              Prï¿½nom: ${person2.name}
               Date de naissance: ${person2.dob}
               Heure de naissance: ${person2.tob}
               Lieu de naissance: ${person2.pob}
@@ -76,14 +76,14 @@ function Compatibilite() {
 
               ${tarotPromptInstruction}
 
-              En t'aidant de l'analyse des éléments suivants peux-tu répondre à la question suivante : Est-ce que ${person1.name} et ${person2.name} ont une bonne compatibilité ${compatibilityType} ?
-              - Leur thèmes astrales,
-              - Leur horoscopes pour l'année 2023
+              En t'aidant de l'analyse des ï¿½lï¿½ments suivants peux-tu rï¿½pondre ï¿½ la question suivante : Est-ce que ${person1.name} et ${person2.name} ont une bonne compatibilitï¿½ ${compatibilityType} ?
+              - Leur thï¿½mes astrales,
+              - Leur horoscopes pour l'annï¿½e 2023
               ${tarotPromptAnalysis}
               ${mbtipromptAnalysis}
 
-              J'aimerais que tu réponde précisément et que tu donnes des exemples dans ta réponse. Finis chaque paragraphe par un conseil personnalisés, évite les phrases trop généralistes. Aussi dans l'astrologie les gens sont plus sensibles aux conseils qui portent sur leurs relations et l'humain que sur le matériel. Conclu ta réponse avec une réponse par "oui" ou par "non" pour savoir si ces deux personnes sont compatibles.
-              Enlève les formules d'incertitudes, nous savons que l'astrologie est inexacte, pas besoin de le rappeler. Romance un peu ta réponse. Réponds en 1024 caractères et fait des paragraphes courts. Adresse-toi directement au client en le vouvoyant.
+              J'aimerais que tu rï¿½ponde prï¿½cisï¿½ment et que tu donnes des exemples dans ta rï¿½ponse. Finis chaque paragraphe par un conseil personnalisï¿½s, ï¿½vite les phrases trop gï¿½nï¿½ralistes. Aussi dans l'astrologie les gens sont plus sensibles aux conseils qui portent sur leurs relations et l'humain que sur le matï¿½riel. Conclu ta rï¿½ponse avec une rï¿½ponse par "oui" ou par "non" pour savoir si ces deux personnes sont compatibles.
+              Enlï¿½ve les formules d'incertitudes, nous savons que l'astrologie est inexacte, pas besoin de le rappeler. Romance un peu ta rï¿½ponse. Rï¿½ponds en 1024 caractï¿½res et fait des paragraphes courts. Adresse-toi directement au client en le vouvoyant.
               `;
 
         console.log(prompt)
@@ -114,14 +114,14 @@ function Compatibilite() {
                 {
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer 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`,
+                        Authorization: `Bearer `,
                     },
                 }
             );
 
             const generatedText = result.data.choices[0].text.trim();
             const listStart =
-                "Voici 13 cartes de tarot de Marseilles tirées au hasard :";
+                "Voici 13 cartes de tarot de Marseilles tirï¿½es au hasard :";
             const listEnd = ".";
             const listStartIndex = generatedText.indexOf(listStart);
             const listEndIndex = generatedText.indexOf(listEnd, listStartIndex);
@@ -160,7 +160,7 @@ function Compatibilite() {
                             <div className="Form-astral">
                                 <div>
                                     <label className="Form-label-astral">
-                                        Prénom :
+                                        Prï¿½nom :
                                         <input
                                             className="Form-input-astral"
                                             type="text"
@@ -216,7 +216,7 @@ function Compatibilite() {
                             <div className="Form-astral">
                                 <div>
                                     <label className="Form-label-astral">
-                                        Prénom :
+                                        Prï¿½nom :
                                         <input
                                             className="Form-input-astral"
                                             type="text"
@@ -271,7 +271,7 @@ function Compatibilite() {
                     </div>
 
                     {/* Radio buttons for compatibility type */}
-                    <h3>Type de compatibilité</h3>
+                    <h3>Type de compatibilitï¿½</h3>
                     <div className="radio-form">
 
                         <input
@@ -394,7 +394,7 @@ function Compatibilite() {
                     {/* Submit button */}
                     <div className="Button-submit-div">
                         <button className="Button" type="submit">
-                            Calculer la compatibilité
+                            Calculer la compatibilitï¿½
                         </button>
                     </div>
                 </div>
@@ -409,10 +409,10 @@ function Compatibilite() {
                 <div className="Reponse-paragraphs">
                     {answer.paragraphs.length > 0 && (
                         <div>
-                            <h2>Réponse :</h2>
+                            <h2>Rï¿½ponse :</h2>
                             {tarotCheck && (
                                 <>
-                                    <p>Voici 13 cartes de tarot de Marseilles tirées au hasard :</p>
+                                    <p>Voici 13 cartes de tarot de Marseilles tirï¿½es au hasard :</p>
                                     {answer.listItems.length > 0 && (
                                         <ul>
                                             {answer.listItems.map((item, index) => (
